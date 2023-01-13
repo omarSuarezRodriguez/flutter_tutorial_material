@@ -106,21 +106,16 @@ class _MyAppState extends State<MyApp> {
     return AppBar(
       title: useMaterial3
           ? const Text("Flutter Tutorial")
-          : const Text("Material 2"),
+          : const Text("Flutter Tutorial"),
       actions: [
-        IconButton(
-          icon: useLightMode
-              ? const Icon(Icons.wb_sunny_outlined)
-              : const Icon(Icons.wb_sunny),
-          onPressed: handleBrightnessChange,
-          tooltip: "Toggle brightness",
-        ),
+        
+
         IconButton(
           icon: useMaterial3
-              ? const Icon(Icons.filter_3)
+              ? const Icon(Icons.filter_1)
               : const Icon(Icons.filter_2),
           onPressed: handleMaterialVersionChange,
-          tooltip: "Switch to Material ${useMaterial3 ? 2 : 3}",
+          tooltip: "Cambiar tema",
         ),
         PopupMenuButton(
           icon: const Icon(Icons.more_vert),
@@ -142,6 +137,95 @@ class _MyAppState extends State<MyApp> {
                 ],
               ),
             ),
+
+
+            PopupMenuItem(
+              onTap: handleBrightnessChange,
+              child: Wrap(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Icon(
+                      useLightMode
+                      ? Icons.wb_sunny_outlined
+                      : Icons.wb_sunny,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: useLightMode
+                    ? const Text("Tema Oscuro")
+                    : const Text("Tema Claro"),
+                  ),
+                ],
+              ),
+            ),
+
+
+            // PopupMenuItem(
+            //   onTap: handleBrightnessChange,
+            //   child: Wrap(
+            //     children: [
+            //       Padding(
+            //         padding: const EdgeInsets.only(top: 0),
+            //         child: Icon(
+            //           useLightMode
+            //           ? Icons.wb_sunny_outlined
+            //           : Icons.wb_sunny,
+            //         ),
+            //       ),
+            //       const Padding(
+            //         padding: EdgeInsets.only(top: 10, left: 5),
+            //         child: Text("Cambiar Tema"),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
+            // PopupMenuItem(
+            //   onTap: handleBrightnessChange,
+            //   child: Wrap(
+            //     children: [
+                  
+            //         IconButton(
+            //         icon: useLightMode
+            //             ? const Icon(Icons.wb_sunny_outlined)
+            //             : const Icon(Icons.wb_sunny),
+            //         onPressed: handleBrightnessChange,
+            //         tooltip: "Toggle brightness",
+            //         ),
+                  
+            //       ListTile(title: const Text("Cambiar Tema"), onTap: handleBrightnessChange,),
+                
+            //     ],
+            //   ),
+            // ),
+
+            // PopupMenuItem(
+            //   child: Wrap(
+            //     children: [
+            //       Padding(
+            //         padding: const EdgeInsets.only(left: 10),
+            //         child: IconButton(
+            //         icon: useLightMode
+            //             ? const Icon(Icons.wb_sunny_outlined)
+            //             : const Icon(Icons.wb_sunny),
+            //         onPressed: handleBrightnessChange,
+            //         tooltip: "Toggle brightness",
+            //         ),
+            //       ),
+            //       const Padding(
+            //         padding: EdgeInsets.only(left: 5),
+            //         child: ListTile(title: Text("Cambiar Tema")),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
+
+
+
+
           ],
 
           // Wrap(
