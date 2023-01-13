@@ -108,27 +108,106 @@ class _MyAppState extends State<MyApp> {
           ? const Text("Flutter Tutorial")
           : const Text("Flutter Tutorial"),
       actions: [
-        
 
-        IconButton(
-          icon: useMaterial3
-              ? const Icon(Icons.filter_1)
-              : const Icon(Icons.filter_2),
-          onPressed: handleMaterialVersionChange,
-          tooltip: "Cambiar tema",
-        ),
         PopupMenuButton(
+          icon: const Icon(Icons.color_lens_outlined),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          itemBuilder: (context) {
+            return List.generate(colorOptions.length, (index) {
+              return PopupMenuItem(
+                  value: index,
+                  child: Wrap(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Icon(
+                          index == colorSelected
+                              ? Icons.color_lens
+                              : Icons.color_lens_outlined,
+                          color: colorOptions[index],
+                        ),
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Text(colorText[index]))
+                    ],
+                  ));
+            });
+          },
+          onSelected: handleColorSelect,
+        ),
+
+        // IconButton(
+        //   icon: useMaterial3
+        //       ? const Icon(Icons.filter_1)
+        //       : const Icon(Icons.filter_2),
+        //   onPressed: handleMaterialVersionChange,
+        //   tooltip: "Cambiar tema",
+        // ),
+        PopupMenuButton(
+          
           icon: const Icon(Icons.more_vert),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
 
           itemBuilder: (context) => [
+
+            PopupMenuItem(
+              onTap: handleBrightnessChange,
+              child: Wrap(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Icon(
+                      useLightMode ? Icons.wb_sunny : Icons.wb_sunny_outlined, color: Colors.grey,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: useLightMode
+                        ? const Text("Tema Oscuro")
+                        : const Text("Tema Claro"),
+                  ),
+                ],
+              ),
+            ),
+
+
+        //     IconButton(
+        //   icon: useMaterial3
+        //       ? const Icon(Icons.filter_1)
+        //       : const Icon(Icons.filter_2),
+        //   onPressed: handleMaterialVersionChange,
+        //   tooltip: "Cambiar tema",
+        // ),
+
+            PopupMenuItem(
+              onTap: handleMaterialVersionChange,
+              child: Wrap(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Icon(
+                      useMaterial3 ? Icons.filter_2 : Icons.filter_1, color: Colors.grey,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: useMaterial3
+                        ? const Text("Tema 2")
+                        : const Text("Tema 1"),
+                  ),
+                ],
+              ),
+            ),
+
             PopupMenuItem(
               child: Wrap(
                 children: const [
                   Padding(
                     padding: EdgeInsets.only(left: 10),
-                    child: Icon(Icons.code),
+                    child: Icon(Icons.code, color: Colors.grey,),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 20),
@@ -138,29 +217,12 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
 
+            
 
-            PopupMenuItem(
-              onTap: handleBrightnessChange,
-              child: Wrap(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(
-                      useLightMode
-                      ? Icons.wb_sunny_outlined
-                      : Icons.wb_sunny,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: useLightMode
-                    ? const Text("Tema Oscuro")
-                    : const Text("Tema Claro"),
-                  ),
-                ],
-              ),
-            ),
+            
 
+            
+            
 
             // PopupMenuItem(
             //   onTap: handleBrightnessChange,
@@ -186,7 +248,7 @@ class _MyAppState extends State<MyApp> {
             //   onTap: handleBrightnessChange,
             //   child: Wrap(
             //     children: [
-                  
+
             //         IconButton(
             //         icon: useLightMode
             //             ? const Icon(Icons.wb_sunny_outlined)
@@ -194,9 +256,9 @@ class _MyAppState extends State<MyApp> {
             //         onPressed: handleBrightnessChange,
             //         tooltip: "Toggle brightness",
             //         ),
-                  
+
             //       ListTile(title: const Text("Cambiar Tema"), onTap: handleBrightnessChange,),
-                
+
             //     ],
             //   ),
             // ),
@@ -221,12 +283,9 @@ class _MyAppState extends State<MyApp> {
             //     ],
             //   ),
             // ),
-
-
-
-
-
           ],
+
+          
 
           // Wrap(
           //   children: const [
@@ -266,6 +325,9 @@ class _MyAppState extends State<MyApp> {
 
           // },
         ),
+
+        
+
       ],
     );
   }
