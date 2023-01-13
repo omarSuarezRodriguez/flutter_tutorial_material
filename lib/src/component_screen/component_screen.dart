@@ -386,27 +386,27 @@ class _DialogsState extends State<Dialogs> {
 const List<NavigationDestination> appBarDestinations = [
   NavigationDestination(
     tooltip: "",
-    icon: Icon(Icons.widgets_outlined),
+    icon: Icon(Icons.bolt_outlined),
     label: 'Components',
+    selectedIcon: Icon(Icons.bolt_outlined),
+  ),
+  NavigationDestination(
+    tooltip: "",
+    icon: Icon(Icons.code_outlined),
+    label: 'Basics',
+    selectedIcon: Icon(Icons.code_outlined),
+  ),
+  NavigationDestination(
+    tooltip: "",
+    icon: Icon(Icons.widgets),
+    label: 'Widgets',
     selectedIcon: Icon(Icons.widgets),
   ),
   NavigationDestination(
     tooltip: "",
-    icon: Icon(Icons.format_paint_outlined),
-    label: 'Color',
-    selectedIcon: Icon(Icons.format_paint),
-  ),
-  NavigationDestination(
-    tooltip: "",
-    icon: Icon(Icons.text_snippet_outlined),
-    label: 'Typography',
-    selectedIcon: Icon(Icons.text_snippet),
-  ),
-  NavigationDestination(
-    tooltip: "",
-    icon: Icon(Icons.invert_colors_on_outlined),
-    label: 'Elevation',
-    selectedIcon: Icon(Icons.opacity),
+    icon: Icon(Icons.api_rounded),
+    label: 'Projects',
+    selectedIcon: Icon(Icons.api_rounded),
   )
 ];
 
