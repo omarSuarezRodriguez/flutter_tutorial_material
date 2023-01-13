@@ -8,7 +8,6 @@ import 'component_screen/component_screen.dart';
 import 'elevation_screen/elevation_screen.dart';
 import 'typography_screen/typography_screen.dart';
 
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -105,7 +104,9 @@ class _MyAppState extends State<MyApp> {
 
   PreferredSizeWidget createAppBar() {
     return AppBar(
-      title: useMaterial3 ? const Text("Flutter Tutorial") : const Text("Material 2"),
+      title: useMaterial3
+          ? const Text("Flutter Tutorial")
+          : const Text("Material 2"),
       actions: [
         IconButton(
           icon: useLightMode
@@ -125,29 +126,61 @@ class _MyAppState extends State<MyApp> {
           icon: const Icon(Icons.more_vert),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          itemBuilder: (context) {
-            return List.generate(colorOptions.length, (index) {
-              return PopupMenuItem(
-                  value: index,
-                  child: Wrap(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Icon(
-                          index == colorSelected
-                              ? Icons.color_lens
-                              : Icons.color_lens_outlined,
-                          color: colorOptions[index],
-                        ),
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(colorText[index]))
-                    ],
-                  ));
-            });
-          },
-          onSelected: handleColorSelect,
+
+          itemBuilder: (context) => [
+            PopupMenuItem(
+              child: Wrap(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Icon(Icons.code),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text("Descargar Código"),
+                  ),
+                ],
+              ),
+            ),
+          ],
+
+          // Wrap(
+          //   children: const [
+          //     Padding(
+          //       padding: EdgeInsets.only(left: 10),
+          //       child: Icon(Icons.color_lens),
+          //     ),
+          //     Padding(
+          //       padding: EdgeInsets.only(left: 20),
+          //       child: Text("Hola"),
+          //     ),
+          //   ],
+          // ),
+
+          // itemBuilder: (context) {
+
+          //   return List.generate(colorOptions.length, (index) {
+          //     return PopupMenuItem(
+          //         value: index,
+          //         child: Wrap(
+          //           children: [
+          //             Padding(
+          //               padding: const EdgeInsets.only(left: 10),
+          //               child: Icon(
+          //                 index == colorSelected
+          //                     ? Icons.color_lens
+          //                     : Icons.color_lens_outlined,
+          //                 color: colorOptions[index],
+          //               ),
+          //             ),
+          //             Padding(
+          //                 padding: const EdgeInsets.only(left: 20),
+          //                 child: Text(colorText[index]))
+          //           ],
+          //         ));
+          //   });
+
+          // },
         ),
       ],
     );
